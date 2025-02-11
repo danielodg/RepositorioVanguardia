@@ -10,6 +10,17 @@ var estudiantesR = require("./routes/estudiantes");
 var gremioR = require('./routes/gremio');
 var hechiceroR = require('./routes/hechiceros');
 var app = express();
+const mongoose = require('mongoose');
+// Conexión a la base de datos
+const connectDB = async () =>{
+  try {
+    await mongoose.connect('mongodb+srv://cluster0.lv5uo.mongodb.net');
+    console.log('Database is connected');
+  }catch (error){
+    console.log(error);
+  }
+}
+connectDB();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
